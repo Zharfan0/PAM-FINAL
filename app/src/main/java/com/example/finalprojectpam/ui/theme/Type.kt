@@ -1,4 +1,4 @@
-package com.example.pam_final.ui.theme
+package com.example.finalprojectpam.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

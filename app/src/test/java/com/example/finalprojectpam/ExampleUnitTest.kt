@@ -1,4 +1,4 @@
-package com.example.pam_final
+package com.example.finalprojectpam
 
 import org.junit.Test
 

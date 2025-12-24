@@ -1,6 +1,5 @@
-package com.example.pam_final.ui.theme
+package com.example.finalprojectpam.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pam_final"
+    namespace = "com.example.finalprojectpam"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.pam_final"
+        applicationId = "com.example.finalprojectpam"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
