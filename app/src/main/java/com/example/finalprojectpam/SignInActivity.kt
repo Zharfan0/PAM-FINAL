@@ -50,10 +50,12 @@ class SignInActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if(firebaseAuth.currentUser != null){
-            val intent = Intent(this, MainActivity::class.java)
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            val intent = Intent(this, LandingActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
         }
     }
+
 }
