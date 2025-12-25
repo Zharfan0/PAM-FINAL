@@ -1,4 +1,4 @@
-package com.example.finalprojectpam
+package com.example.finalprojectpam.Persuratan
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.widget.Toolbar
+import com.example.finalprojectpam.LandingActivity
 import com.example.finalprojectpam.R
+import com.example.finalprojectpam.SignInActivity
 
 class PersuratanActivity : AppCompatActivity() {
 
