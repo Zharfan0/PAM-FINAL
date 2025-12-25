@@ -28,6 +28,8 @@
         <activity android:name=".LandingActivity" />
         <activity android:name=".PersuratanActivity" />
         <activity android:name=".ProposalActivity" />
+        <activity android:name=".RiwayatSuratActivity" />
+
     </application>
 
 </manifest>
