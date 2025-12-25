@@ -1,70 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Kategori -->
+    <!-- ================= KONTEN UTAMA ================= -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnSuratMasuk"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="Surat Masuk"
-            android:layout_height="wrap_content"/>
+        <!-- TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:title="Persuratan"
+            android:titleTextColor="@android:color/white"/>
 
-        <Button
-            android:id="@+id/btnSuratKeluar"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="Surat Keluar"
-            android:layout_height="wrap_content"/>
+        <!-- ================= ISI HALAMAN ================= -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- KATEGORI SURAT -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnSuratMasuk"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Surat Masuk" />
+
+                    <Button
+                        android:id="@+id/btnSuratKeluar"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Surat Keluar"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <!-- BUAT SURAT -->
+                <Button
+                    android:id="@+id/btnBuatSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buat Surat"
+                    android:layout_marginTop="16dp" />
+
+                <!-- HEADER TABEL -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#E0E0E0"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="Nama"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="Divisi"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="No Surat"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="Status"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="Action"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- PLACEHOLDER DATA -->
+                <TextView
+                    android:id="@+id/tvEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Data surat akan tampil di sini)"
+                    android:gravity="center"
+                    android:padding="24dp"
+                    android:textColor="#777777" />
+
+                <!-- NANTI: RecyclerView -->
+
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 
-    <!-- Tombol Buat Surat -->
-    <Button
-        android:id="@+id/btnBuatSurat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Buat Surat"
-        android:layout_marginTop="16dp"/>
+    <!-- ================= NAVIGATION DRAWER ================= -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"/>
 
-    <!-- Header Tabel -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#EEEEEE"
-        android:padding="8dp"
-        android:layout_marginTop="16dp">
-
-        <TextView android:text="Nama" android:layout_weight="1"
-            android:layout_width="0dp" android:layout_height="wrap_content"/>
-
-        <TextView android:text="Divisi" android:layout_weight="1"
-            android:layout_width="0dp" android:layout_height="wrap_content"/>
-
-        <TextView android:text="No Surat" android:layout_weight="1"
-            android:layout_width="0dp" android:layout_height="wrap_content"/>
-
-        <TextView android:text="Status" android:layout_weight="1"
-            android:layout_width="0dp" android:layout_height="wrap_content"/>
-
-        <TextView android:text="Action" android:layout_weight="1"
-            android:layout_width="0dp" android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <!-- Placeholder Data -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="(Data surat akan tampil di sini)"
-        android:gravity="center"
-        android:padding="16dp"/>
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
