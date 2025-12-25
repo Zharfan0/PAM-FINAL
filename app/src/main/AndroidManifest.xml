@@ -29,6 +29,8 @@
         <activity android:name=".Persuratan.PersuratanActivity" />
         <activity android:name=".Proposal.ProposalActivity" />
         <activity android:name=".Persuratan.RiwayatSuratActivity" />
+        <activity android:name=".Persuratan.CreateSuratActivity" />
+
 
     </application>
 
