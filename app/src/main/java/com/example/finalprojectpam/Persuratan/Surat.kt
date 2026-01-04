@@ -6,5 +6,7 @@ data class Surat(
     val isi: String = "",
     val ketua: String = "",
     val tujuan: String = "",
-    val nomor: String = ""
+    val nomor: String = "",
+    val divisi: String = "",
+    val status: String = "Draft"
 )

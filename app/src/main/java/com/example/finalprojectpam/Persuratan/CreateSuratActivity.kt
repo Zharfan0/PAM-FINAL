@@ -71,7 +71,9 @@ class CreateSuratActivity : AppCompatActivity() {
             isi = isi,
             ketua = ketua,
             tujuan = tujuan,
-            nomor = nomor
+            nomor = nomor,
+            divisi = "Sekre IT",  // bisa ambil dari profil user nanti
+            status = "Draft"       // default
         )
 
         // Generate ID unik untuk surat
