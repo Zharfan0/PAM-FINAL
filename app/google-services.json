@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "79080771775",
+    "firebase_url": "https://finalprojpam-default-rtdb.firebaseio.com",
     "project_id": "finalprojpam",
     "storage_bucket": "finalprojpam.firebasestorage.app"
   },
