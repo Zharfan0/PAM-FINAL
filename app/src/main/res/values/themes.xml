@@ -12,6 +12,15 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/yellow</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/cardview_light_background</item>
+        <item name="android:textColorHint">@color/Grey</item> <!-- hint warna gelap -->
+        <item name="android:textColor">@color/black</item> <!-- text warna gelap -->
+        <item name="android:editTextColor">@color/black</item> <!-- text edit warna gelap -->
+        <item name="colorControlNormal">@color/Grey</item> <!-- Warna garis normal -->
+        <item name="colorControlActivated">@color/Grey</item> <!-- Warna garis saat focus -->
+
+<!--        <item name="android:editTextBackground">@color/LightGrey</item> &lt;!&ndash; text edit warna gelap &ndash;&gt;-->
+
     </style>
 
     <style name="LoginTextInputOuterFieldStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

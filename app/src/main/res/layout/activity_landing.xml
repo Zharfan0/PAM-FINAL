@@ -7,24 +7,27 @@
     android:padding="24dp">
 
     <!-- Judul Aplikasi -->
+
+    <!-- Role User -->
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Selamat Datang"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="#444444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Role User -->
     <TextView
         android:id="@+id/tvRole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SEKRE DIVISI"
         android:textSize="14sp"
-        android:textColor="#666666"
+        android:textColor="#444444"
         app:layout_constraintTop_toBottomOf="@id/tvWelcome"
         app:layout_constraintStart_toStartOf="@id/tvWelcome"
         android:layout_marginTop="4dp" />
