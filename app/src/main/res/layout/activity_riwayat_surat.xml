@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="(Data surat akan tampil di sini)"
                     android:gravity="center"
-                    android:padding="24dp"
+                    android:padding="1dp"
                     android:textColor="#777777" />
 
                 <!-- NANTI: RecyclerView -->

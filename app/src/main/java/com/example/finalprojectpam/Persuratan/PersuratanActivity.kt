@@ -25,18 +25,12 @@ class PersuratanActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
     private lateinit var toolbar: Toolbar
-
     private lateinit var btnBuatSurat: Button
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_persuratan)
         btnBuatSurat = findViewById(R.id.btnBuatSurat)
-
-
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
         toolbar = findViewById(R.id.toolbar)
@@ -69,10 +63,6 @@ class PersuratanActivity : AppCompatActivity() {
             }
         })
 
-
-
-
-
         // Set toolbar sebagai ActionBar
         setSupportActionBar(toolbar)
 
@@ -86,10 +76,6 @@ class PersuratanActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
-
-
-
 
         // Navigasi menu
         navigationView.setNavigationItemSelectedListener { menuItem ->
