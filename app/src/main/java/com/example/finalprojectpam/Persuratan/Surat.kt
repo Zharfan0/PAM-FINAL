@@ -1,6 +1,7 @@
 package com.example.finalprojectpam.Persuratan
 
 data class Surat(
+    var id: String = "",
     val tanggal: String = "",
     val perihal: String = "",
     val isi: String = "",

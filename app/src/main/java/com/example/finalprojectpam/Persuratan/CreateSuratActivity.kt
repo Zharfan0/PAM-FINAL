@@ -9,6 +9,12 @@ import com.example.finalprojectpam.databinding.ActivityCreateSuratBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.Calendar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+
 
 class CreateSuratActivity : AppCompatActivity() {
 
@@ -33,6 +39,7 @@ class CreateSuratActivity : AppCompatActivity() {
             finish() // kembali ke activity sebelumnya
         }
 
+        // Tombol tanggal
         binding.btnTanggal.setOnClickListener {
             val calendar = Calendar.getInstance()
             val datePicker = DatePickerDialog(
@@ -40,31 +47,27 @@ class CreateSuratActivity : AppCompatActivity() {
                 { _, year, month, dayOfMonth ->
                     binding.btnTanggal.text = "$dayOfMonth/${month + 1}/$year"
                 },
-                calendar.get(Calendar.YEAR),  // Tahun sekarang
-                calendar.get(Calendar.MONTH), // Bulan sekarang
-                calendar.get(Calendar.DAY_OF_MONTH) // Hari sekarang
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
             )
-            datePicker.show() // tampilkan kalender
+            datePicker.show()
         }
-
     }
 
     private fun submitSurat() {
-        // Ambil data dari EditText
-        val tanggal = binding.btnTanggal.text.toString() // nanti bisa diubah ke DatePicker
+        val tanggal = binding.btnTanggal.text.toString()
         val perihal = binding.etPerihalSurat.text.toString()
         val isi = binding.etIsiSurat.text.toString()
         val ketua = binding.etKetua.text.toString()
         val tujuan = binding.etTujuan.text.toString()
         val nomor = binding.etNomorSurat.text.toString()
 
-        // Validasi sederhana
         if (tanggal.isEmpty() || perihal.isEmpty() || isi.isEmpty() || ketua.isEmpty() || tujuan.isEmpty()) {
             Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Buat object Surat
         val surat = Surat(
             tanggal = tanggal,
             perihal = perihal,
@@ -72,18 +75,16 @@ class CreateSuratActivity : AppCompatActivity() {
             ketua = ketua,
             tujuan = tujuan,
             nomor = nomor,
-            divisi = "Sekre IT",  // bisa ambil dari profil user nanti
-            status = "Draft"       // default
+            divisi = "Sekre IT",  // nanti ambil dari user profile
+            status = "Draft"
         )
 
-        // Generate ID unik untuk surat
         val suratId = database.push().key
-
         if (suratId != null) {
             database.child(suratId).setValue(surat)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Surat berhasil disimpan!", Toast.LENGTH_SHORT).show()
-                    finish() // kembali ke halaman sebelumnya
+                    finish()
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Gagal menyimpan: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -91,3 +92,4 @@ class CreateSuratActivity : AppCompatActivity() {
         }
     }
 }
+

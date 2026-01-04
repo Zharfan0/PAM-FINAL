@@ -109,14 +109,12 @@
                 </LinearLayout>
 
                 <!-- PLACEHOLDER DATA -->
-                <TextView
-                    android:id="@+id/tvEmpty"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="(Data surat akan tampil di sini)"
-                    android:gravity="center"
-                    android:padding="24dp"
-                    android:textColor="#777777" />
+                    android:layout_marginTop="8dp"/>
+
 
                 <!-- NANTI: RecyclerView -->
 
