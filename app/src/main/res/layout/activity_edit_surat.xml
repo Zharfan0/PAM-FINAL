@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Surat (Draft)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etTanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tanggal"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/etPerihal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Perihal"/>
+
+        <EditText
+            android:id="@+id/etIsi"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Isi Surat"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <EditText
+            android:id="@+id/etKetua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ketua Pelaksana"/>
+
+        <EditText
+            android:id="@+id/etTujuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tujuan Surat"/>
+
+        <EditText
+            android:id="@+id/etNomor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nomor Surat"/>
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Perubahan"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
