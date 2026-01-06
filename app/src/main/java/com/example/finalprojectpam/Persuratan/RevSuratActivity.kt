@@ -14,7 +14,7 @@ class RevSuratActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_surat)
+        setContentView(R.layout.activity_revisi_surat)
 
         // Ambil ID surat dari intent
         suratId = intent.getStringExtra("suratId") ?: ""
