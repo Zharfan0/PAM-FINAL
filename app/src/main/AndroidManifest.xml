@@ -30,6 +30,7 @@
         <activity android:name=".Proposal.ProposalActivity" />
         <activity android:name=".Persuratan.RiwayatSuratActivity" />
         <activity android:name=".Persuratan.CreateSuratActivity" />
+        <activity android:name=".Persuratan.EditSuratActivity" />
 
 
     </application>
