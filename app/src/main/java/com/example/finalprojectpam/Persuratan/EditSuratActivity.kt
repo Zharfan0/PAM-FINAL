@@ -68,7 +68,8 @@ class EditSuratActivity : AppCompatActivity() {
                 "isi" to etIsi.text.toString(),
                 "ketua" to etKetua.text.toString(),
                 "tujuan" to etTujuan.text.toString(),
-                "nomor" to etNomor.text.toString()
+                "nomor" to etNomor.text.toString(),
+                "status" to "Pending"
             )
 
             ref.updateChildren(updatedData).addOnSuccessListener {
