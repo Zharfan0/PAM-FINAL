@@ -9,5 +9,6 @@ data class Surat(
     val tujuan: String = "",
     val nomor: String = "",
     val divisi: String = "",
+    val revisi: String = "",
     var status: String = "Draft"
 )
