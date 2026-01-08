@@ -9,5 +9,5 @@ data class Proposal(
     val KetuPlak: String = "",
     val TtlDana: String = "",
     val Divisi: String = "",
-    val Status: String = "Draft"
+    val status: String = "Draft"
 )
