@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:title="Poposal"
+            android:title="Persuratan"
             android:titleTextColor="@android:color/white"/>
 
         <!-- ================= ISI HALAMAN ================= -->
@@ -59,7 +59,7 @@
 
                 <!-- BUAT PROPOSAL -->
                 <Button
-                    android:id="@+id/btnBuatProposal"
+                    android:id="@+id/btnBuatSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Buat Proposal"
@@ -118,7 +118,7 @@
 
                 <!-- PLACEHOLDER DATA -->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvProposal"
+                    android:id="@+id/rvSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

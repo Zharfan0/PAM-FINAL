@@ -52,27 +52,23 @@ class CreateProposalActivity : AppCompatActivity() {
 
     private fun submitSurat() {
         val tanggal = binding.btnTanggal.text.toString()
-        val perihal = binding.etPerihalSurat.text.toString()
-        val isi = binding.etIsiSurat.text.toString()
-        val ketua = binding.etKetua.text.toString()
-        val tujuan = binding.etTujuan.text.toString()
-        val nomor = binding.etNomorSurat.text.toString()
+        val NmProgram = binding.etNmProgram.text.toString()
+        val KetuPlak = binding.eKetua.text.toString()
+        val TtlDana = binding.etTotalDana.text.toString()
 
-        if (tanggal.isEmpty() || perihal.isEmpty() || isi.isEmpty() || ketua.isEmpty() || tujuan.isEmpty()) {
+        if (tanggal.isEmpty() || NmProgram.isEmpty() || KetuPlak.isEmpty() || TtlDana.isEmpty()) {
             Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()
             return
         }
 
-//        val surat = Surat(
-//            tanggal = tanggal,
-//            perihal = perihal,
-//            isi = isi,
-//            ketua = ketua,
-//            tujuan = tujuan,
-//            nomor = nomor,
-//            divisi = "Sekre IT",  // nanti ambil dari user profile
-//            status = "Draft"
-//        )
+        val surat = Proposal(
+            NmProgram = tanggal,
+            TglProgram = NmProgram,
+            KetuPlak = KetuPlak,
+            TtlDana = TtlDana,
+            Divisi = "Sekre IT",  // nanti ambil dari user profile
+            Status = "Draft"
+        )
 
         val suratId = database.push().key
         if (suratId != null) {

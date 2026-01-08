@@ -30,7 +30,7 @@ class ProposalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_persuratan)
+        setContentView(R.layout.activity_proposal)
         btnBuatProposal = findViewById(R.id.btnBuatProposal)
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
