@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ================= JUDUL HALAMAN ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="Formulir Surat"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Silahkan isi seluruh kolom berikut"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- ================= TANGGAL SURAT ================= -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Surat"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Btn Tanggal" />
+
+
+        <!-- ================= PERIHAL SURAT ================= -->
+
+
+        <EditText
+            android:id="@+id/etPerihalSurat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Perihal"
+            android:inputType="textCapSentences" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:text="Contoh: Undangan, Keputusan, Rekomendasi, dll."
+            android:textSize="10sp"
+            android:textStyle="normal" />
+
+        <!-- ================= ISI SURAT ================= -->
+        <EditText
+            android:id="@+id/etIsiSurat"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Isi / Deskripsi Surat"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginTop="12dp"/>
+
+        <!-- ================= KETUA PENGIRIM ================= -->
+        <EditText
+            android:id="@+id/etKetua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ketua Pelaksana"
+            android:layout_marginTop="12dp" />
+
+        <!-- ================= TUJUAN SURAT ================= -->
+        <EditText
+            android:id="@+id/etTujuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tujuan Surat"
+            android:layout_marginTop="12dp" />
+
+        <!-- ================= NOMOR SURAT ================= -->
+        <EditText
+            android:id="@+id/etNomorSurat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nomor Surat (Opsional)"
+            android:layout_marginTop="12dp" />
+
+        <!-- ================= TOMBOL AKSI ================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Ajukan Surat" />
+
+            <Button
+                android:id="@+id/btnBatal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Batal"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
