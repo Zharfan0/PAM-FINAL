@@ -67,7 +67,7 @@ class CreateProposalActivity : AppCompatActivity() {
             KetuPlak = KetuPlak,
             TtlDana = TtlDana,
             Divisi = "Sekre IT",  // nanti ambil dari user profile
-            Status = "Draft"
+            status = "Draft"
         )
 
         val suratId = database.push().key
