@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:text="Formulir Surat"
+            android:text="Formulir Proposal"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -28,12 +28,12 @@
             android:gravity="center"
             android:paddingBottom="16dp" />
 
-        <!-- ================= TANGGAL SURAT ================= -->
+        <!-- ================= TANGGAL PROPOSAL ================= -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tanggal Surat"
+            android:text="Tanggal Pelaksanaan"
             android:textStyle="normal"
             android:textSize="16sp"
             android:layout_marginBottom="8dp" />
@@ -47,56 +47,31 @@
             android:text="Btn Tanggal" />
 
 
-        <!-- ================= PERIHAL SURAT ================= -->
+        <!-- ================= PERIHAL PRPOPOSAL ================= -->
 
 
         <EditText
-            android:id="@+id/etPerihalSurat"
+            android:id="@+id/etNmProgram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Perihal"
+            android:hint="Nama Program"
             android:inputType="textCapSentences" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:text="Contoh: Undangan, Keputusan, Rekomendasi, dll."
-            android:textSize="10sp"
-            android:textStyle="normal" />
 
-        <!-- ================= ISI SURAT ================= -->
+        <!-- ================= ISI KETUA ================= -->
         <EditText
-            android:id="@+id/etIsiSurat"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:hint="Isi / Deskripsi Surat"
-            android:gravity="top"
-            android:inputType="textMultiLine"
-            android:layout_marginTop="12dp"/>
-
-        <!-- ================= KETUA PENGIRIM ================= -->
-        <EditText
-            android:id="@+id/etKetua"
+            android:id="@+id/eKetua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ketua Pelaksana"
             android:layout_marginTop="12dp" />
 
-        <!-- ================= TUJUAN SURAT ================= -->
+        <!-- ================= TOTAL DANA ================= -->
         <EditText
-            android:id="@+id/etTujuan"
+            android:id="@+id/etTotalDana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tujuan Surat"
-            android:layout_marginTop="12dp" />
-
-        <!-- ================= NOMOR SURAT ================= -->
-        <EditText
-            android:id="@+id/etNomorSurat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nomor Surat (Opsional)"
+            android:hint="Total Dana"
             android:layout_marginTop="12dp" />
 
         <!-- ================= TOMBOL AKSI ================= -->
@@ -111,7 +86,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Ajukan Surat" />
+                android:text="Ajukan Proposal" />
 
             <Button
                 android:id="@+id/btnBatal"
