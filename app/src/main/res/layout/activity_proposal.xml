@@ -48,21 +48,21 @@
                         android:text="Buat Proposal"
 />
 
-                    <Button
-                        android:id="@+id/btnProposalMasuk"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Proposal Masuk"
-                        android:layout_marginStart="8dp" />/>
+<!--                    <Button-->
+<!--                        android:id="@+id/btnProposalMasuk"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Proposal Masuk"-->
+<!--                        android:layout_marginStart="8dp" />/>-->
 
-                    <Button
-                        android:id="@+id/btnProposalKeluar"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Proposal Keluar"
-                        android:layout_marginStart="8dp" />
+<!--                    <Button-->
+<!--                        android:id="@+id/btnProposalKeluar"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Proposal Keluar"-->
+<!--                        android:layout_marginStart="8dp" />-->
                 </LinearLayout>
                 
 
@@ -112,16 +112,12 @@
                 </LinearLayout>
 
                 <!-- PLACEHOLDER DATA -->
-                <TextView
-                    android:id="@+id/tvEmpty"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProposal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="(Data Proposal akan tampil di sini)"
-                    android:gravity="center"
-                    android:padding="24dp"
-                    android:textColor="#777777" />
-
-                <!-- NANTI: RecyclerView -->
+                    android:layout_marginTop="10dp"
+                    />
 
             </LinearLayout>
         </ScrollView>

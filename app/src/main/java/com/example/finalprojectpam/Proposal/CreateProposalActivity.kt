@@ -63,16 +63,16 @@ class CreateProposalActivity : AppCompatActivity() {
             return
         }
 
-        val surat = Surat(
-            tanggal = tanggal,
-            perihal = perihal,
-            isi = isi,
-            ketua = ketua,
-            tujuan = tujuan,
-            nomor = nomor,
-            divisi = "Sekre IT",  // nanti ambil dari user profile
-            status = "Draft"
-        )
+//        val surat = Surat(
+//            tanggal = tanggal,
+//            perihal = perihal,
+//            isi = isi,
+//            ketua = ketua,
+//            tujuan = tujuan,
+//            nomor = nomor,
+//            divisi = "Sekre IT",  // nanti ambil dari user profile
+//            status = "Draft"
+//        )
 
         val suratId = database.push().key
         if (suratId != null) {
