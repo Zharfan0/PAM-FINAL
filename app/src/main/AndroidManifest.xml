@@ -26,11 +26,14 @@
             android:exported="true">
         </activity>
         <activity android:name=".LandingActivity" />
+
         <activity android:name=".Persuratan.PersuratanActivity" />
-        <activity android:name=".Proposal.CreateProposalActivity" />
         <activity android:name=".Persuratan.RiwayatSuratActivity" />
         <activity android:name=".Persuratan.CreateSuratActivity" />
         <activity android:name=".Persuratan.EditSuratActivity" />
+
+        <activity android:name=".Proposal.CreateProposalActivity" />
+        <activity android:name=".Proposal.ProposalActivity" />
 
 
     </application>
