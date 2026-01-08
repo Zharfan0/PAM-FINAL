@@ -87,15 +87,15 @@ class ProposalAdapter(
             when (item.title.toString()) {
                 "Kirim" -> updateStatus(proposal, "Pending", tvStatus)
                 "Revisi" -> {
-                    val intent = Intent(context, RevSuratActivity::class.java)
+                    val intent = Intent(context, RevProposalActivity::class.java)
                     intent.putExtra("suratId", proposal.id)
                     context.startActivity(intent)
                 }
                 "ACC" -> updateStatus(proposal, "ACC", tvStatus)
                 "Selesai" -> updateStatus(proposal, "Selesai", tvStatus)
-                "Delete" -> deleteSurat(proposal)
+                "Delete" -> deleteProposal(proposal)
                 "Edit Revisi" -> {
-                    val intent = Intent(context, EditSuratActivity::class.java)
+                    val intent = Intent(context, EditProposalActivity::class.java)
                     intent.putExtra("suratId", proposal.id)
                     context.startActivity(intent)
                 }
@@ -131,7 +131,7 @@ class ProposalAdapter(
     private fun updateStatus(proposal: Proposal, newStatus: String, tvStatus: TextView) {
         val ref = FirebaseDatabase.getInstance().getReference("proposal").child(proposal.id)
         ref.child("status").setValue(newStatus).addOnSuccessListener {
-            proposal.Status = newStatus
+            proposal.status = newStatus
             tvStatus.text = newStatus
             tvStatus.setBackgroundColor(getStatusColor(newStatus))
             Toast.makeText(context, "Status updated: $newStatus", Toast.LENGTH_SHORT).show()
