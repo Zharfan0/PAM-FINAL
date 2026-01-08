@@ -41,20 +41,20 @@
                     android:orientation="horizontal"
                     android:gravity="center">
 
-                    <Button
-                        android:id="@+id/btnSuratMasuk"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Surat Masuk" />
+<!--                    <Button-->
+<!--                        android:id="@+id/btnSuratMasuk"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Surat Masuk" />-->
 
-                    <Button
-                        android:id="@+id/btnSuratKeluar"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Surat Keluar"
-                        android:layout_marginStart="8dp" />
+<!--                    <Button-->
+<!--                        android:id="@+id/btnSuratKeluar"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Surat Keluar"-->
+<!--                        android:layout_marginStart="8dp" />-->
                 </LinearLayout>
 
                 <!-- BUAT SURAT -->
