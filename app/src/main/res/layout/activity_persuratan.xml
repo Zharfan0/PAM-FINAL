@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:title="Persuratan"
+            android:title="Poposal"
             android:titleTextColor="@android:color/white"/>
 
         <!-- ================= ISI HALAMAN ================= -->
@@ -34,12 +34,12 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- KATEGORI SURAT -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+<!--                &lt;!&ndash; KATEGORI PROPOSAL &ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:gravity="center">-->
 
 <!--                    <Button-->
 <!--                        android:id="@+id/btnSuratMasuk"-->
@@ -55,15 +55,16 @@
 <!--                        android:layout_height="wrap_content"-->
 <!--                        android:text="Surat Keluar"-->
 <!--                        android:layout_marginStart="8dp" />-->
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <!-- BUAT SURAT -->
+                <!-- BUAT PROPOSAL -->
                 <Button
-                    android:id="@+id/btnBuatSurat"
+                    android:id="@+id/btnBuatProposal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Buat Surat"
+                    android:text="Buat Proposal"
                     android:layout_marginTop="16dp" />
+
 
                 <!-- HEADER TABEL -->
                 <LinearLayout
@@ -117,7 +118,7 @@
 
                 <!-- PLACEHOLDER DATA -->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSurat"
+                    android:id="@+id/rvProposal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
