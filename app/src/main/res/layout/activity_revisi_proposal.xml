@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Revisi Proposal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/etNmProgram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nomor Surat"/>
+
+        <TextView
+            android:id="@+id/etKetua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="Tanggal" />
+
+        <TextView
+            android:id="@+id/etTotalDana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Perihal"/>
+
+        <EditText
+            android:id="@+id/etRevisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Revisi Surat"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Perubahan"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
