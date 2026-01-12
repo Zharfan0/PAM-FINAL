@@ -84,7 +84,6 @@
                 android:textColor="#856404"/>
         </LinearLayout>
 
-
         <Button
             android:id="@+id/btnSimpan"
             android:layout_width="match_parent"
