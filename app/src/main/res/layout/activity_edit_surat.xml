@@ -57,6 +57,34 @@
             android:layout_height="wrap_content"
             android:hint="Nomor Surat"/>
 
+        <!-- Catatan Revisi (default hidden) -->
+        <LinearLayout
+            android:id="@+id/layoutCatatanRevisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:padding="12dp"
+            android:background="#FFF3CD"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catatan Revisi"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#856404"/>
+
+            <TextView
+                android:id="@+id/tvCatatanRevisi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#856404"/>
+        </LinearLayout>
+
+
         <Button
             android:id="@+id/btnSimpan"
             android:layout_width="match_parent"
