@@ -52,21 +52,21 @@ class CreateProposalActivity : AppCompatActivity() {
 
     private fun submitSurat() {
         val tanggal = binding.btnTanggal.text.toString()
-        val NmProgram = binding.etNmProgram.text.toString()
+        val nmProgram = binding.etNmProgram.text.toString()
         val KetuPlak = binding.eKetua.text.toString()
         val TtlDana = binding.etTotalDana.text.toString()
 
-        if (tanggal.isEmpty() || NmProgram.isEmpty() || KetuPlak.isEmpty() || TtlDana.isEmpty()) {
+        if (tanggal.isEmpty() || nmProgram.isEmpty() || KetuPlak.isEmpty() || TtlDana.isEmpty()) {
             Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()
             return
         }
 
         val surat = Proposal(
-            NmProgram = tanggal,
-            TglProgram = NmProgram,
-            KetuPlak = KetuPlak,
-            TtlDana = TtlDana,
-            Divisi = "Sekre IT",  // nanti ambil dari user profile
+            nmProgram = nmProgram,
+            tglProgram = tanggal,
+            ketuPlak = KetuPlak,
+            ttlDana = TtlDana,
+            divisi = "Sekre IT",  // nanti ambil dari user profile
             status = "Draft"
         )
 

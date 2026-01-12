@@ -21,7 +21,7 @@ class ProposalAdapter(
 ) : RecyclerView.Adapter<ProposalAdapter.ProposalViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProposalViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_surat, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_proposal, parent, false)
         return ProposalViewHolder(view)
     }
 
@@ -31,9 +31,9 @@ class ProposalAdapter(
         val proposal = list[position]
 
         // Set text
-        holder.tvProker.text = proposal.NmProgram
-        holder.tvDivisiProker.text = proposal.Divisi
-        holder.tvTglProker.text = proposal.TglProgram
+        holder.tvProker.text = proposal.nmProgram
+        holder.tvDivisiProker.text = proposal.divisi
+        holder.tvTglProker.text = proposal.tglProgram
         holder.tvStatus.text = proposal.status
 
         // Set warna status

@@ -22,22 +22,28 @@
             android:id="@+id/etNmProgram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nomor Surat"/>
+            android:hint="Nama Program" />
 
         <TextView
             android:id="@+id/etKetua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:hint="Tanggal" />
+            android:hint="Ketua Pelaksana" />
 
         <TextView
             android:id="@+id/etTotalDana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Perihal"/>
+            android:hint="Total Dana"/>
 
-        <EditText
+        <TextView
+            android:id="@+id/etTglProker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tanggal Proker"/>
+
+        <TextView
             android:id="@+id/etRevisi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
