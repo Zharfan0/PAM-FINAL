@@ -1,8 +1,10 @@
 package com.example.finalprojectpam.Persuratan
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +17,10 @@ class RevSuratActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_revisi_surat)
+        setContentView(R.layout.activity_edit_surat)
+
+        val layoutRevisi = findViewById<LinearLayout>(R.id.layoutCatatanRevisi)
+        val tvRevisi = findViewById<TextView>(R.id.tvCatatanRevisi)
 
         // Ambil ID surat dari intent
         suratId = intent.getStringExtra("suratId") ?: ""
@@ -26,12 +31,12 @@ class RevSuratActivity : AppCompatActivity() {
             return
         }
 
-        val etTanggal = findViewById<TextView>(R.id.etTanggal)
-        val etPerihal = findViewById<TextView>(R.id.etPerihal)
-        val etIsi = findViewById<TextView>(R.id.etIsi)
-        val etKetua = findViewById<TextView>(R.id.etKetua)
-        val etTujuan = findViewById<TextView>(R.id.etTujuan)
-        val etNomor = findViewById<TextView>(R.id.etNomor)
+        val etTanggal = findViewById<EditText>(R.id.etTanggal)
+        val etPerihal = findViewById<EditText>(R.id.etPerihal)
+        val etIsi = findViewById<EditText>(R.id.etIsi)
+        val etKetua = findViewById<EditText>(R.id.etKetua)
+        val etTujuan = findViewById<EditText>(R.id.etTujuan)
+        val etNomor = findViewById<EditText>(R.id.etNomor)
         val btnSimpan = findViewById<Button>(R.id.btnSimpan)
 
         val ref = FirebaseDatabase.getInstance().getReference("surat").child(suratId)
@@ -60,6 +65,17 @@ class RevSuratActivity : AppCompatActivity() {
             etKetua.setText(surat.ketua)
             etTujuan.setText(surat.tujuan)
             etNomor.setText(surat.nomor)
+
+            // ================= CATATAN REVISI =================
+            val catatanRevisi = surat.revisi
+
+            if (!catatanRevisi.isNullOrBlank()) {
+                layoutRevisi.visibility = View.VISIBLE
+                tvRevisi.text = catatanRevisi
+            } else {
+                layoutRevisi.visibility = View.GONE
+            }
+
         }
 
         // ================= SIMPAN =================
@@ -69,7 +85,8 @@ class RevSuratActivity : AppCompatActivity() {
                 "isi" to etIsi.text.toString(),
                 "ketua" to etKetua.text.toString(),
                 "tujuan" to etTujuan.text.toString(),
-                "nomor" to etNomor.text.toString()
+                "nomor" to etNomor.text.toString(),
+                "status" to "Revisi"
             )
 
             ref.updateChildren(updatedData).addOnSuccessListener {
