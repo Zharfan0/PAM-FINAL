@@ -36,6 +36,8 @@
         <activity android:name=".Proposal.CreateProposalActivity" />
         <activity android:name=".Proposal.ProposalActivity" />
         <activity android:name=".Proposal.RiwayatProposalActivity" />
+        <activity android:name=".Proposal.RevProposalActivity"/>
+        <activity android:name=".Proposal.EditProposalActivity"/>
 
 
     </application>

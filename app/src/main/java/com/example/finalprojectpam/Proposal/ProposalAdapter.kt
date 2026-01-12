@@ -86,10 +86,7 @@ class ProposalAdapter(
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.title.toString()) {
                 "Kirim" -> updateStatus(proposal, "Pending", tvStatus)
-                "Revisi" -> {
-                    val intent = Intent(context, RevProposalActivity::class.java)
-                    intent.putExtra("suratId", proposal.id)
-                    context.startActivity(intent)
+                "Revisi" -> { updateStatus(proposal, "Revisi", tvStatus)
                 }
                 "ACC" -> updateStatus(proposal, "ACC", tvStatus)
                 "Selesai" -> updateStatus(proposal, "Selesai", tvStatus)
