@@ -9,5 +9,6 @@ data class Proposal(
     val ttlDana: String = "",
     val tglProgram: String = "",
     val divisi: String = "",
-    var status: String = "Draft"
+    var status: String = "Draft",
+    val revisi: String = ""
 )
