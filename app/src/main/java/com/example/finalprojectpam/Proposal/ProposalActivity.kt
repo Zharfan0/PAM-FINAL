@@ -51,7 +51,7 @@ class ProposalActivity : AppCompatActivity() {
                 val list = ArrayList<Proposal>()
                 for (data in snapshot.children) {
                     val proposal = data.getValue(Proposal::class.java)
-                    if (proposal != null) {
+                    if (proposal != null && proposal.status != ("Selesai")) {
                         proposal.id = data.key ?: ""
                         list.add(proposal)
                     }

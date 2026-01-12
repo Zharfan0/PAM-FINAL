@@ -14,6 +14,7 @@ import com.example.finalprojectpam.LandingActivity
 import com.example.finalprojectpam.Persuratan.Surat
 import com.example.finalprojectpam.Persuratan.SuratAdapter
 import com.example.finalprojectpam.R
+import com.example.finalprojectpam.R.id.rvProposal
 import com.example.finalprojectpam.SignInActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,7 +29,7 @@ class RiwayatProposalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_riwayat_surat)
+        setContentView(R.layout.activity_riwayat_proposal)
 
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
@@ -46,24 +47,21 @@ class RiwayatProposalActivity : AppCompatActivity() {
             R.string.close
         )
 
-        val rvSurat: RecyclerView = findViewById(R.id.rvSurat)
-        val database = FirebaseDatabase.getInstance().getReference("proposal")
-        rvSurat.layoutManager = LinearLayoutManager(this)
+        val rvProposal: RecyclerView = findViewById(rvProposal)
+        rvProposal.layoutManager = LinearLayoutManager(this)
 
+        val database = FirebaseDatabase.getInstance().getReference("proposal")
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val list = ArrayList<Surat>()
+                val list = ArrayList<Proposal>()
                 for (data in snapshot.children) {
-                    val surat = data.getValue(Surat::class.java)
-                    if (surat != null) {
-                        surat.id = data.key ?: ""
-                        // ✅ Filter hanya status "Selesai"
-                        if (surat.status == "Selesai") {
-                            list.add(surat)
-                        }
+                    val proposal = data.getValue(Proposal::class.java)
+                    if (proposal != null && proposal.status==("Selesai")) {
+                        proposal.id = data.key ?: ""
+                        list.add(proposal)
                     }
                 }
-                rvSurat.adapter = SuratAdapter(this@RiwayatProposalActivity, list)
+                rvProposal.adapter = ProposalAdapter(this@RiwayatProposalActivity, list)
             }
 
             override fun onCancelled(error: DatabaseError) {
