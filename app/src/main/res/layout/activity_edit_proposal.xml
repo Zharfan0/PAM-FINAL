@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Surat (Draft)"
+            android:text="Edit Proposal (Draft)"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -26,18 +26,10 @@
             android:enabled="false"/>
 
         <EditText
-            android:id="@+id/etPerihal"
+            android:id="@+id/etNmProgram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Perihal"/>
-
-        <EditText
-            android:id="@+id/etIsi"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:hint="Isi Surat"
-            android:gravity="top"
-            android:inputType="textMultiLine"/>
+            android:hint="Nama Program"/>
 
         <EditText
             android:id="@+id/etKetua"
@@ -46,16 +38,10 @@
             android:hint="Ketua Pelaksana"/>
 
         <EditText
-            android:id="@+id/etTujuan"
+            android:id="@+id/etTotalDana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tujuan Surat"/>
-
-        <EditText
-            android:id="@+id/etNomor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nomor Surat"/>
+            android:hint="Total Dana"/>
 
         <!-- Catatan Revisi (default hidden) -->
         <LinearLayout
