@@ -31,6 +31,7 @@
         <activity android:name=".Persuratan.RiwayatSuratActivity" />
         <activity android:name=".Persuratan.CreateSuratActivity" />
         <activity android:name=".Persuratan.EditSuratActivity" />
+        <activity android:name=".Persuratan.RevSuratActivity" />
 
         <activity android:name=".Proposal.CreateProposalActivity" />
         <activity android:name=".Proposal.ProposalActivity" />

@@ -85,10 +85,7 @@ class SuratAdapter(
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.title.toString()) {
                 "Kirim" -> updateStatus(surat, "Pending", tvStatus)
-                "Revisi" -> {
-                    val intent = Intent(context, RevSuratActivity::class.java)
-                    intent.putExtra("suratId", surat.id)
-                    context.startActivity(intent)
+                "Revisi" -> { updateStatus(surat, "Revisi", tvStatus)
                 }
                 "ACC" -> updateStatus(surat, "ACC", tvStatus)
                 "Selesai" -> updateStatus(surat, "Selesai", tvStatus)

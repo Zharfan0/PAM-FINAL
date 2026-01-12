@@ -3,6 +3,7 @@ package com.example.finalprojectpam.Persuratan
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalprojectpam.R
@@ -25,12 +26,12 @@ class RevSuratActivity : AppCompatActivity() {
             return
         }
 
-        val etTanggal = findViewById<EditText>(R.id.etTanggal)
-        val etPerihal = findViewById<EditText>(R.id.etPerihal)
-        val etIsi = findViewById<EditText>(R.id.etIsi)
-        val etKetua = findViewById<EditText>(R.id.etKetua)
-        val etTujuan = findViewById<EditText>(R.id.etTujuan)
-        val etNomor = findViewById<EditText>(R.id.etNomor)
+        val etTanggal = findViewById<TextView>(R.id.etTanggal)
+        val etPerihal = findViewById<TextView>(R.id.etPerihal)
+        val etIsi = findViewById<TextView>(R.id.etIsi)
+        val etKetua = findViewById<TextView>(R.id.etKetua)
+        val etTujuan = findViewById<TextView>(R.id.etTujuan)
+        val etNomor = findViewById<TextView>(R.id.etNomor)
         val btnSimpan = findViewById<Button>(R.id.btnSimpan)
 
         val ref = FirebaseDatabase.getInstance().getReference("surat").child(suratId)

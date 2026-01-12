@@ -50,7 +50,7 @@ class PersuratanActivity : AppCompatActivity() {
                 val list = ArrayList<Surat>()
                 for (data in snapshot.children) {
                     val surat = data.getValue(Surat::class.java)
-                    if (surat != null) {
+                    if (surat != null && surat.status != "Selesai") {
                         surat.id = data.key ?: ""
                         list.add(surat)
                     }
