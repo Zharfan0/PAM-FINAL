@@ -86,14 +86,17 @@ class ProposalAdapter(
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.title.toString()) {
                 "Kirim" -> updateStatus(proposal, "Pending", tvStatus)
-                "Revisi" -> { updateStatus(proposal, "Revisi", tvStatus)
+                "Revisi" -> {
+                    val intent = Intent(context, RevProposalActivity::class.java)
+                    intent.putExtra("proposalId", proposal.id)
+                    context.startActivity(intent)
                 }
                 "ACC" -> updateStatus(proposal, "ACC", tvStatus)
                 "Selesai" -> updateStatus(proposal, "Selesai", tvStatus)
                 "Delete" -> deleteProposal(proposal)
                 "Edit Revisi" -> {
                     val intent = Intent(context, EditProposalActivity::class.java)
-                    intent.putExtra("suratId", proposal.id)
+                    intent.putExtra("proposalId", proposal.id)
                     context.startActivity(intent)
                 }
             }
