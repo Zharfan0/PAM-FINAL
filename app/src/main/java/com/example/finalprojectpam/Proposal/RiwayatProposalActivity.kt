@@ -47,7 +47,7 @@ class RiwayatProposalActivity : AppCompatActivity() {
         )
 
         val rvSurat: RecyclerView = findViewById(R.id.rvSurat)
-        val database = FirebaseDatabase.getInstance().getReference("surat")
+        val database = FirebaseDatabase.getInstance().getReference("proposal")
         rvSurat.layoutManager = LinearLayoutManager(this)
 
         database.addValueEventListener(object : ValueEventListener {
