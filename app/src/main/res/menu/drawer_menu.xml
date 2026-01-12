@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/menu_daftar_surat"
-        android:title="Daftar Surat"
+        android:title="Daftar Surat/Proposal"
         android:icon="@android:drawable/ic_menu_agenda"/>
 
     <item
         android:id="@+id/menu_riwayat"
-        android:title="Riwayat Surat"
+        android:title="Riwayat Surat/proposal"
         android:icon="@android:drawable/ic_menu_recent_history"/>
 
     <!-- Spacer -->
