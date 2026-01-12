@@ -24,13 +24,13 @@ class RevSuratActivity : AppCompatActivity() {
             return
         }
 
-        val etCatatanRevisi = findViewById<EditText>(R.id.etCatatanRevisi)
+        val etRevisi = findViewById<EditText>(R.id.etRevisi)
         val btnSimpan = findViewById<Button>(R.id.btnSimpan)
 
         val ref = FirebaseDatabase.getInstance().getReference("surat").child(suratId)
 
         btnSimpan.setOnClickListener {
-            val revisi = etCatatanRevisi.text.toString().trim()
+            val revisi = etRevisi.text.toString().trim()
 
             if (revisi.isEmpty()) {
                 Toast.makeText(this, "Catatan revisi tidak boleh kosong", Toast.LENGTH_SHORT).show()
@@ -38,7 +38,7 @@ class RevSuratActivity : AppCompatActivity() {
             }
 
             val dataRevisi = mapOf(
-                "catatanRevisi" to revisi,
+                "revisi" to revisi,
                 "status" to "Revisi"
             )
 

@@ -57,7 +57,7 @@
             android:hint="Tujuan Surat"/>
 
         <EditText
-            android:id="@+id/etCatatanRevisi"
+            android:id="@+id/etRevisi"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:hint="Tuliskan catatan revisi..."
