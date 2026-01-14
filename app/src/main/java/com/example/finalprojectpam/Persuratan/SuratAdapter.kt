@@ -16,7 +16,8 @@ import com.google.firebase.database.FirebaseDatabase
 
 class SuratAdapter(
     private val context: Context,
-    private val list: ArrayList<Surat>
+    private val list: ArrayList<Surat>,
+    private val role: String = ""
 ) : RecyclerView.Adapter<SuratAdapter.SuratViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuratViewHolder {
@@ -62,12 +63,36 @@ class SuratAdapter(
     private fun showPopupMenu(button: Button, surat: Surat, tvStatus: TextView) {
         val popupMenu = PopupMenu(context, button)
 
-        // Tambahkan menu sesuai status
+        val isSekreDivisi = role == "SEKRE_DIVISI"
+
         when (surat.status) {
-            "Draft" -> { popupMenu.menu.add("Kirim"); popupMenu.menu.add("Delete") }
-            "Pending" -> { popupMenu.menu.add("Revisi"); popupMenu.menu.add("ACC") }
-            "Revisi" -> { popupMenu.menu.add("Edit Revisi"); popupMenu.menu.add("Delete") }
-            "ACC" -> { popupMenu.menu.add("Delete"); popupMenu.menu.add("Selesai") }
+            "Draft" -> {
+                popupMenu.menu.add("Kirim")
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Delete")
+                }
+            }
+
+            "Pending" -> {
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Revisi")
+                    popupMenu.menu.add("ACC")
+                }
+            }
+
+            "Revisi" -> {
+                popupMenu.menu.add("Edit Revisi")
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Delete")
+                }
+            }
+
+            "ACC" -> {
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Delete")
+                }
+                popupMenu.menu.add("Selesai")
+            }
         }
 
         // Set warna text & background
