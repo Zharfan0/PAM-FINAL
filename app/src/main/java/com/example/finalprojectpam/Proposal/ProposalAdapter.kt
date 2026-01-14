@@ -17,7 +17,8 @@ import com.google.firebase.database.FirebaseDatabase
 
 class ProposalAdapter(
     private val context: Context,
-    private val list: ArrayList<Proposal>
+    private val list: ArrayList<Proposal>,
+    private val role: String = ""
 ) : RecyclerView.Adapter<ProposalAdapter.ProposalViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProposalViewHolder {
@@ -63,24 +64,36 @@ class ProposalAdapter(
     private fun showPopupMenu(button: Button, proposal: Proposal, tvStatus: TextView) {
         val popupMenu = PopupMenu(context, button)
 
-        // Tambahkan menu sesuai status
-        when (proposal.status) {
-            "Draft" -> { popupMenu.menu.add("Kirim"); popupMenu.menu.add("Delete") }
-            "Pending" -> { popupMenu.menu.add("Revisi"); popupMenu.menu.add("ACC") }
-            "Revisi" -> { popupMenu.menu.add("Edit Revisi"); popupMenu.menu.add("Delete") }
-            "ACC" -> { popupMenu.menu.add("Delete"); popupMenu.menu.add("Selesai") }
-        }
+        val isSekreDivisi = role == "SEKRE_DIVISI"
 
-        // Set warna text & background
-        try {
-            val fieldMPopup = PopupMenu::class.java.getDeclaredField("mPopup")
-            fieldMPopup.isAccessible = true
-            val menuPopupHelper = fieldMPopup.get(popupMenu)
-            val classPopupHelper = Class.forName(menuPopupHelper.javaClass.name)
-            val setForceIcons = classPopupHelper.getMethod("setForceShowIcon", Boolean::class.javaPrimitiveType)
-            setForceIcons.invoke(menuPopupHelper, true)
-        } catch (e: Exception) {
-            e.printStackTrace()
+        when (proposal.status) {
+            "Draft" -> {
+                popupMenu.menu.add("Kirim")
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Delete")
+                }
+            }
+
+            "Pending" -> {
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Revisi")
+                    popupMenu.menu.add("ACC")
+                }
+            }
+
+            "Revisi" -> {
+                popupMenu.menu.add("Edit Revisi")
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Delete")
+                }
+            }
+
+            "ACC" -> {
+                if (!isSekreDivisi) {
+                    popupMenu.menu.add("Delete")
+                }
+                popupMenu.menu.add("Selesai")
+            }
         }
 
         popupMenu.setOnMenuItemClickListener { item ->
@@ -103,11 +116,9 @@ class ProposalAdapter(
             true
         }
 
-        // **Custom background & text warna**
-        popupMenu.setOnDismissListener { /* optional */ }
         popupMenu.show()
 
-        // Setelah show, iterasi semua menu item
+        // styling tetap (punya kamu)
         for (i in 0 until popupMenu.menu.size()) {
             val menuItem = popupMenu.menu.getItem(i)
             val s = SpannableString(menuItem.title)
@@ -115,7 +126,6 @@ class ProposalAdapter(
             menuItem.title = s
         }
 
-        // Set background via popup window (API 23+)
         try {
             val menuHelperField = PopupMenu::class.java.getDeclaredField("mPopup")
             menuHelperField.isAccessible = true
@@ -126,6 +136,7 @@ class ProposalAdapter(
             e.printStackTrace()
         }
     }
+
 
 
     private fun updateStatus(proposal: Proposal, newStatus: String, tvStatus: TextView) {

@@ -46,6 +46,48 @@ class ProposalActivity : AppCompatActivity() {
         rvProposal.layoutManager = LinearLayoutManager(this)
 
         val database = FirebaseDatabase.getInstance().getReference("proposal")
+
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        if (uid == null) {
+            Toast.makeText(this, "User belum login", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+        FirebaseDatabase.getInstance()
+            .getReference("users")
+            .child(uid)
+            .child("role")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val role = snapshot.getValue(String::class.java) ?: ""
+
+                // ⬇️ PINDAHKAN LOGIKA LOAD PROPOSAL KE SINI
+                val database = FirebaseDatabase.getInstance().getReference("proposal")
+                database.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val list = ArrayList<Proposal>()
+                        for (data in snapshot.children) {
+                            val proposal = data.getValue(Proposal::class.java)
+                            if (proposal != null && proposal.status != "Selesai") {
+                                proposal.id = data.key ?: ""
+                                list.add(proposal)
+                            }
+                        }
+                        rvProposal.adapter = ProposalAdapter(this@ProposalActivity, list, role)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(
+                            this@ProposalActivity,
+                            "Gagal load data: ${error.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                })
+            }
+
+
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val list = ArrayList<Proposal>()
