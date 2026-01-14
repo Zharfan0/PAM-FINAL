@@ -1,8 +1,11 @@
 package com.example.finalprojectpam.Proposal
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalprojectpam.Persuratan.Surat
@@ -13,12 +16,17 @@ class EditProposalActivity : AppCompatActivity() {
 
     private lateinit var proposalId: String
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_proposal)
 
         // Ambil ID surat dari intent
         proposalId = intent.getStringExtra("proposalId") ?: ""
+
+        val layoutRevisi = findViewById<LinearLayout>(R.id.layoutCatatanRevisi)
+        val tvRevisi = findViewById<TextView>(R.id.tvCatatanRevisi)
 
         if (proposalId.isEmpty()) {
             Toast.makeText(this, "ID Surat tidak ditemukan", Toast.LENGTH_SHORT).show()
@@ -56,6 +64,16 @@ class EditProposalActivity : AppCompatActivity() {
             etNmProgram.setText(proposal.nmProgram)
             etKetua.setText(proposal.ketuPlak)
             etTotalDana.setText(proposal.ttlDana)
+
+            // ================= CATATAN REVISI =================
+            val catatanRevisi = proposal.revisi
+
+            if (!catatanRevisi.isNullOrBlank()) {
+                layoutRevisi.visibility = View.VISIBLE
+                tvRevisi.text = catatanRevisi
+            } else {
+                layoutRevisi.visibility = View.GONE
+            }
         }
 
         // ================= SIMPAN =================

@@ -41,7 +41,7 @@
             android:id="@+id/etTotalDana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Total Dana"/>
+            android:hint="Total Dana" />
 
         <!-- Catatan Revisi (default hidden) -->
         <LinearLayout
