@@ -11,70 +11,65 @@ import com.google.firebase.database.FirebaseDatabase
 
 class EditProposalActivity : AppCompatActivity() {
 
-    private lateinit var suratId: String
+    private lateinit var proposalId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_surat)
+        setContentView(R.layout.activity_edit_proposal)
 
         // Ambil ID surat dari intent
-        suratId = intent.getStringExtra("suratId") ?: ""
+        proposalId = intent.getStringExtra("proposalId") ?: ""
 
-        if (suratId.isEmpty()) {
+        if (proposalId.isEmpty()) {
             Toast.makeText(this, "ID Surat tidak ditemukan", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
         val etTanggal = findViewById<EditText>(R.id.etTanggal)
-        val etPerihal = findViewById<EditText>(R.id.etPerihal)
-        val etIsi = findViewById<EditText>(R.id.etIsi)
+        val etNmProgram = findViewById<EditText>(R.id.etNmProgram)
         val etKetua = findViewById<EditText>(R.id.etKetua)
-        val etTujuan = findViewById<EditText>(R.id.etTujuan)
-        val etNomor = findViewById<EditText>(R.id.etNomor)
+        val etTotalDana = findViewById<EditText>(R.id.etTotalDana)
         val btnSimpan = findViewById<Button>(R.id.btnSimpan)
 
-        val ref = FirebaseDatabase.getInstance().getReference("surat").child(suratId)
+        val ref = FirebaseDatabase.getInstance().getReference("proposal").child(proposalId)
 
         // ================= LOAD DATA =================
         ref.get().addOnSuccessListener { snapshot ->
-            val surat = snapshot.getValue(Surat::class.java)
+            val proposal = snapshot.getValue(Proposal::class.java)
 
-            if (surat == null) {
-                Toast.makeText(this, "Data surat tidak ditemukan", Toast.LENGTH_SHORT).show()
+            if (proposal == null) {
+                Toast.makeText(this, "Data proposal tidak ditemukan", Toast.LENGTH_SHORT).show()
                 finish()
                 return@addOnSuccessListener
             }
 
             // 🔐 Validasi status
-            if (surat.status != "Revisi") {
-                Toast.makeText(this, "Hanya surat Revisi yang bisa diedit", Toast.LENGTH_SHORT).show()
+            if (proposal.status != "Revisi") {
+                Toast.makeText(this, "Hanya proposal Revisi yang bisa diedit", Toast.LENGTH_SHORT).show()
                 finish()
                 return@addOnSuccessListener
             }
 
             // Isi form
-            etTanggal.setText(surat.tanggal)
-            etPerihal.setText(surat.perihal)
-            etIsi.setText(surat.isi)
-            etKetua.setText(surat.ketua)
-            etTujuan.setText(surat.tujuan)
-            etNomor.setText(surat.nomor)
+            etTanggal.setText(proposal.tglProgram)
+            etNmProgram.setText(proposal.nmProgram)
+            etKetua.setText(proposal.ketuPlak)
+            etTotalDana.setText(proposal.ttlDana)
         }
 
         // ================= SIMPAN =================
         btnSimpan.setOnClickListener {
             val updatedData = mapOf(
-                "perihal" to etPerihal.text.toString(),
-                "isi" to etIsi.text.toString(),
-                "ketua" to etKetua.text.toString(),
-                "tujuan" to etTujuan.text.toString(),
-                "nomor" to etNomor.text.toString(),
+                "tglProgram" to etTanggal.text.toString(),
+                "nmProgram" to etNmProgram.text.toString(),
+                "ketuPlak" to etKetua.text.toString(),
+                "ttlDana" to etTotalDana.text.toString(),
                 "status" to "Pending"
             )
 
             ref.updateChildren(updatedData).addOnSuccessListener {
-                Toast.makeText(this, "Surat berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Proposal berhasil diperbarui", Toast.LENGTH_SHORT).show()
                 finish()
             }.addOnFailureListener {
                 Toast.makeText(this, "Gagal menyimpan perubahan", Toast.LENGTH_SHORT).show()
